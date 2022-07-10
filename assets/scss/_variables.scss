@@ -1,0 +1,63 @@
+$color-accent: #9DCD48;
+$color-black: #474747;
+$color-white: #fff;
+$color-gray: #f5f1f4;
+$color-dark-gray: #979797;
+$color-gray-2: #D4D4D4;
+$color-bg-gray: #D8D8D8;
+$color-bg-gray-2: #fafafa;
+
+$color-background: rgba(224, 224, 224, 0.2);
+
+
+
+
+// Font size
+
+$xl-font: 42px;
+$l-font: 32px;
+$m-font: 24px;
+$base-font: 16px;
+$s-font: 12px;
+
+@mixin bg-color-opacity($opacity){
+  background-color: rgba(157, 205, 72, $opacity);
+}
+@mixin custom-font($font-size){
+  font-size: $font-size;
+}
+
+@mixin button-primary($background: $color-white, $color: $color-accent, $border-color: $color-accent){
+  border: 1px solid $border-color;
+  background-color: $background;
+  color: $color;
+  padding: 12px 36px;
+  @include simple-transition;
+}
+@mixin button-primary-hover($background: $color-accent, $color: $color-white){
+  &:hover{
+    background-color: $background;
+    color: $color;
+  }
+}
+
+
+
+
+
+@mixin css3-prefix($prop, $value) {
+  -webkit-#{$prop}: #{$value};
+  -moz-#{$prop}: #{$value};
+  -ms-#{$prop}: #{$value};
+  -o-#{$prop}: #{$value};
+  #{$prop}: #{$value};
+}
+
+@mixin simple-transition{
+  transition: .3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  -ms-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+}
+

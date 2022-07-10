@@ -1,0 +1,336 @@
+@import "variables";
+
+button{
+  border: 2px solid green;
+  padding: 12px 24px;
+}
+
+.hero{
+  height: 700px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  .container{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  h1{
+    font-size: $xl-font;
+    font-weight: 700;
+    margin-bottom: 0;
+    span{
+      color: $color-accent;
+    }
+  }
+}
+
+.hero-button{
+  background: transparent;
+}
+#p-grid-boxes{
+  margin-top: -100px;
+}
+.p-box{
+  color: $color-white;
+  padding: 60px 80px;
+  line-height: 1.2em;
+  p{
+    margin-bottom: 0;
+  }
+}
+#p-box-1{
+  @include bg-color-opacity(0.7);
+}
+
+#p-box-2{
+  @include bg-color-opacity(0.85);
+}
+
+#p-box-3{
+  @include bg-color-opacity(1);
+}
+
+#about-us{
+  margin: 90px 0;
+}
+
+.p-home-heading-2{
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  span{
+    color: $color-accent;
+    font-weight: 700;
+  }
+}
+
+.home-description{
+  text-align: justify;
+}
+
+#statistics{
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+
+.statistic-container{
+  line-height: 1.3em;
+}
+
+.statistic-number{
+  @include custom-font(64px);
+  font-weight: 700;
+  color: $color-accent;
+}
+
+.box-shadow-image{
+  box-shadow: 45px 45px 0 $color-gray;
+}
+
+.p-line-heading{
+  background: $color-dark-gray;
+  width: 15%;
+  height: 3px !important;
+}
+.tablinks{
+  cursor: pointer;
+  @include simple-transition;
+  border-bottom: 3px solid transparent;
+  h3{
+    font-weight: 400;
+    @include custom-font(20px);
+    @include simple-transition;
+    letter-spacing: 0.5px;
+   padding: 12px 0;
+  }
+  &:hover{
+    border-bottom: 3px solid $color-accent;
+    h3{
+      color: $color-accent;
+    }
+  }
+
+}
+.tablinks.active{
+  border-bottom: 3px solid $color-accent;
+  .featured-icon-service{
+    filter: invert(69%) sepia(61%) saturate(410%) hue-rotate(39deg) brightness(97%) contrast(89%);
+  }
+  h3{
+    color: $color-accent;
+    font-weight: 700;
+  }
+}
+.tabcontent{
+  ul{
+    line-height: 3em;
+    li{
+      @include custom-font(18px);
+      list-style-image: url("http://polilab.cfolks.pl/wp-content/uploads/2022/07/checkmark.webp");
+      padding-left: 10px;
+    }
+  }
+}
+
+
+.featured-icon-service{
+  @include simple-transition;
+  &:hover{
+    filter: invert(69%) sepia(61%) saturate(410%) hue-rotate(39deg) brightness(97%) contrast(89%);
+  }
+}
+
+.tabcontent{
+  display: none;
+}
+#uzupelnienia-stale{
+  display: block;
+}
+
+.second-background{
+  background: $color-bg-gray-2;
+  padding: 90px 0;
+
+}
+#cta{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.cta-heading{
+  color: $color-white;
+  font-weight: 500;
+}
+.cta-button{
+  @include button-primary(transparent, $color-white, $color-white);
+  @include simple-transition;
+  border-width: 2px;
+  font-size: $l-font;
+  font-weight: 700;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  &:hover{
+    background-color: $color-accent;
+    color: $color-white;
+  }
+}
+
+.expert-heading{
+  font-weight: 400;
+  span{
+    color: $color-accent;
+  }
+}
+.expert-image{
+  img{
+    box-shadow: 10px 10px 0 #fafafa;
+  }
+}
+#contact{
+  background: $color-bg-gray-2;
+}
+.wpcf7{
+  label{
+    width: 100%;
+    color: $color-dark-gray;
+    margin-bottom: 6px;
+  }
+  input:not(input[type=checkbox]){
+    width: 100%;
+    border-radius: 0;
+    height: 60px;
+    border: 2px solid transparent;
+    border-bottom: 2px solid $color-bg-gray;
+    margin-bottom: 12px;
+
+  }
+  textarea{
+    height: 160px;
+    width: 100%;
+    border-radius: 0;
+    border: 2px solid transparent;
+    border-bottom: 2px solid $color-bg-gray;
+
+  }
+  input[type=checkbox]{
+    margin-right: 6px;
+    position: relative;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    display: flex;
+    &:after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -20px;
+      height: 15px;
+      width: 15px;
+      background-color: #fff;
+      border: 1px solid $color-dark-gray;
+    }
+    &:checked{
+      &:after{
+        background-color: $color-accent;
+      }
+    }
+  }
+  input[type=submit]{
+    display: block;
+    background-color: $color-accent;
+    border: 0 !important;
+    color: $color-white;
+    padding: 16px 36px;
+    width: fit-content !important;
+    margin: 0 auto;
+    margin-top: 12px;
+  }
+  .accept{
+    margin-bottom: 6px;
+    label{
+      font-size: $s-font;
+
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  #p-grid-boxes{
+    margin-top: 0;
+  }
+  .p-home-heading-2{
+    font-size: $m-font;
+  }
+  .hero{
+    height: 80vh;
+    background-position: center top;
+    z-index: 1;
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: $color-white;
+      opacity: 0.6;
+      z-index: -1;
+    }
+    h1{
+      font-size: $l-font;
+    }
+    .container{
+      height: 80%;
+    }
+
+    .row{
+      padding: 12px;
+    }
+  }
+  #statistics{
+    background-size: cover;
+    padding: 60px 0;
+  }
+  .expert-image{
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .hero{
+    height: 50vh;
+  }
+  #p-grid-boxes{
+    margin-top: 0;
+  }
+  #p-box-3{
+    padding: 60px 70px;
+  }
+  .box-shadow-image {
+    box-shadow: 10px 10px 0 $color-gray;
+    width: 80%;
+  }
+  .tablinks{
+    margin: 12px 0;
+  }
+  .tablinks{
+    border-bottom: 0 !important;
+  }
+  .tablinks.active{
+    border-bottom: 0 !important;
+  }
+  .tabcontent{
+    ul{
+      line-height: 1.5em;
+    }
+  }
+  .cta-button{
+    font-size: $m-font;
+  }
+}

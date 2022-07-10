@@ -1,0 +1,261 @@
+@import "variables";
+
+#p-header{
+  position: fixed;
+  width: 100%;
+  background: $color-gray;
+  z-index: 9999;
+  padding: 12px 0;
+  @include simple-transition;
+}
+
+.logo{
+  z-index: 999999;
+  img{
+    @include simple-transition;
+    width: 180px;
+    height: 63px;
+  }
+}
+
+#p-header.scrolled{
+  background: $color-bg-gray-2 !important;
+  box-shadow: 0 5px 10px $color-bg-gray;
+  padding: 4px 0 !important;
+  .logo{
+    img{
+     transform: scale(0.7);
+    }
+  }
+}
+
+.p-menu{
+  display: flex;
+  list-style-type: none;
+  justify-content: flex-end;
+  margin-bottom: 0;
+  li{
+    margin: 0 30px;
+    a{
+      color: $color-black;
+      @include simple-transition;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      &:hover{
+        color: $color-accent;
+        &::after{
+          opacity: 1;
+        }
+      }
+      &::after{
+        @include simple-transition;
+        content: '';
+        position: absolute;
+        opacity: 0;
+        display: flex;
+        bottom: -6px;
+        padding-top: 2px;
+        width: 85%;
+        background: $color-accent;
+      }
+    }
+  }
+}
+
+#p-icon{
+  width: 25px;
+  height: 30px;
+  position: relative;
+  margin: 10px auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.scrolled #p-icon{
+  margin: 6px auto;
+}
+
+#p-icon span{
+  display: block;
+  position: absolute;
+  height: 2.3px;
+  width: 100%;
+  background: $color-black;
+
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+
+#p-icon span:nth-child(1) {
+  top: 7px;
+}
+
+#p-icon span:nth-child(2),#p-icon span:nth-child(3) {
+  top: 14px;
+  //width: 75% !important;
+  text-align: right;
+  right: 0 !important;
+  left: auto;
+}
+
+#p-icon span:nth-child(4) {
+  top: 21px;
+}
+
+#p-icon.open span:nth-child(1) {
+  top: 14px;
+  width: 0%;
+  left: 50%;
+}
+
+#p-icon.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#p-icon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#p-icon.open span:nth-child(4) {
+  top: 14px;
+  width: 0%;
+  left: 50%;
+}
+
+.p-hamburger{
+  border: none;
+  outline: 0;
+  padding: 0;
+  float: right;
+  background: transparent;
+
+}
+
+.p-hamburger:focus{
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  #p-header{
+    padding: 0 !important;
+  }
+  #p-header.scrolled{
+    padding: 0 !important;
+  }
+  .logo{
+    z-index: 9999;
+    padding: 12px;
+    img{
+      width: 120px;
+      height: auto;
+      z-index: 99999;
+    }
+
+
+  }
+  #p-icon{
+    z-index: 9999999;
+  }
+  .p-hamburger{
+    z-index: 9999;
+    margin-right: 20px;
+  }
+  #p-header{
+    @include simple-transition;
+    position: fixed;
+    max-width: 100%;
+    overflow-x: hidden;
+    z-index: 99;
+    .container{
+      padding: 0;
+    }
+  }
+  #p-header.active-header{
+    height: 100vh;
+    //position: fixed;
+    width: 100%;
+    background: #f5f1f4;
+    z-index: 999;
+
+  }
+  #p-main-menu{
+    &:before{
+      z-index: 998;
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 100vw;
+      height: 100vh;
+      background: $color-background;
+      transition: all 500ms ease-in-out;
+      box-shadow: -5px -10px $color-black;
+      // that's all the pen about
+      clip-path: circle(30px at calc(100% - 65px) 65px);
+      // for AT
+      visibility: hidden;
+    }
+    .p-menu{
+      z-index: 9999;
+      position: relative;
+      visibility: hidden;
+      @include simple-transition;
+      display: none;
+      top: 50px;
+      width: 84% !important;
+
+      li{
+        margin: 24px 0;
+        padding: 12px 0;
+        a{
+          font-size: $m-font;
+        }
+      }
+      li:not(:last-child){
+        border-bottom: 1px solid $color-black;
+      }
+    }
+  }
+  #p-main-menu.active-clip{
+    &:before{
+      visibility: visible;
+
+      clip-path: circle(100%);
+    }
+  }
+  #p-main-menu.active-menu{
+    display: block;
+    position: absolute;
+    width: 90%;
+    left: 0;
+    .p-menu{
+      display: block;
+      visibility: visible;
+    }
+
+  }
+}

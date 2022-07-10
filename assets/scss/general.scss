@@ -1,0 +1,43 @@
+@import "_fonts";
+@import "_header";
+@import "_footer";
+
+html,body{
+  color: $color-black;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+a{
+  color: $color-accent;
+  text-decoration: none;
+}
+h1{
+  font-size: $xl-font;
+}
+h2{
+  font-size: $l-font;
+}
+h3{
+  font-size: $m-font;
+}
+h4{
+  font-size: $base-font;
+}
+h5{
+  font-size: $s-font;
+}
+
+.button-primary{
+  @include button-primary();
+  display: block;
+  width: fit-content;
+  &:hover{
+    @include button-primary-hover();
+  }
+}
+
+.p-top-fixed{
+  padding-top: 100px;
+}
